@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>还看津朝实践队 - 问答平台</title>
+    <style>
+        :root { --buaa-blue: #004098; }
+        body { font-family: sans-serif; line-height: 1.6; color: #333; margin: 0; background: #f4f7f9; }
+        .header { background: var(--buaa-blue); color: white; padding: 40px 20px; text-align: center; }
+        .team-logo { width: 120px; height: 120px; object-fit: contain; margin-bottom: 20px; border-radius: 50%; box-shadow: 0 0 0 6px rgba(255,255,255,0.25), 0 10px 25px rgba(0,0,0,0.3); background: white; padding: 6px; }
+        .container { max-width: 800px; margin: -20px auto 50px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .notice { background: #eef4ff; border-left: 4px solid var(--buaa-blue); padding: 15px; margin-bottom: 25px; font-size: 14px; }
+        footer { text-align: center; color: #999; padding: 20px; }
+        .wl-login-info { display: none !important; } /* 隐藏登录，保持清爽匿名体验 */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.jpg" alt="还看津朝实践队队徽" class="team-logo">
+        <h1>🚀 还看津朝实践队问答平台</h1>
+        <p>北京航空航天大学社会实践 | 队长：周子钧</p>
+    </div>
+    <div class="container">
+        <div class="notice">
+            <strong>📢 提问说明：</strong> 同学们好！无需登录，直接在下方输入昵称和问题即可提交。所有问答详情对公众完全可见。
+        </div>
+        <div id="waline"></div>
+    </div>
+    <footer>© 2026 还看津朝实践队 | 初心如磐，还看津朝</footer>
+
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
+    <script type="module">
+        import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+        init({
+            el: '#waline',
+            serverURL: 'https://buaa-hkjz.zeabur.app', // ⚠️ 这里一定要替换成你第三步得到的专属后端链接！
+            lang: 'zh-CN',
+            login: 'disable', // 开启匿名提问模式
+            wordLimit: 300,
+            requiredMeta: ['nick'], // 强制要求输入昵称，方便定向回复
+            placeholder: '在这里写下你的疑问吧...',
+        });
+    </script>
+</body>
+</html>
