@@ -1,6 +1,8 @@
 {
-  "private": true,
-  "dependencies": {
-    "@waline/vercel": "latest"
-  }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ]
 }
